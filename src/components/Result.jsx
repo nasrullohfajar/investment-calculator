@@ -1,13 +1,13 @@
+import { calculateInvestmentResults } from "../util/investment";
+
 const Result = ({ data }) => {
-  const table = Array.from({ length: data.duration }, (_, i) => (
-    <tr>
-      <td>{i + 1}</td>
-      <td>$16,800</td>
-      <td>$900</td>
-      <td>$900</td>
-      <td>$15,900</td>
-    </tr>
-  ));
+  const results = calculateInvestmentResults({
+    initialInvestment: data.initialInvestment,
+    annualInvestment: data.annualInvestment,
+    expectedReturn: data.expectedReturn,
+    duration: data.duration,
+  });
+
   return (
     <table id="result">
       <thead>
@@ -19,7 +19,19 @@ const Result = ({ data }) => {
           <th>Invested Capital</th>
         </tr>
       </thead>
-      <tbody>{table}</tbody>
+      <tbody>
+        {results.map((result) => {
+          return (
+            <tr key={result.year}>
+              <td>{result.year}</td>
+              <td>$16,800</td>
+              <td>$900</td>
+              <td>$900</td>
+              <td>$15,900</td>
+            </tr>
+          );
+        })}
+      </tbody>
     </table>
   );
 };

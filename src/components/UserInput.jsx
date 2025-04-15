@@ -9,8 +9,8 @@ const UserInput = ({ data, onChange }) => {
           <input
             type="number"
             id="initial-invesment"
-            name="initialInvesment"
-            value={data.initialInvesment}
+            name="initialInvestment"
+            value={data.initialInvestment}
             onChange={onChange}
           />
         </div>
@@ -19,8 +19,8 @@ const UserInput = ({ data, onChange }) => {
           <input
             type="number"
             id="annual-invesment"
-            name="annualInvesment"
-            value={data.annualInvesment}
+            name="annualInvestment"
+            value={data.annualInvestment}
             onChange={onChange}
           />
         </div>

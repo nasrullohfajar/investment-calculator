@@ -6,8 +6,8 @@ import { useState } from "react";
 
 function App() {
   const [data, setData] = useState({
-    initialInvesment: 0,
-    annualInvesment: 0,
+    initialInvestment: 0,
+    annualInvestment: 0,
     expectedReturn: 0,
     duration: 1,
   });

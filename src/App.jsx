@@ -12,24 +12,21 @@ function App() {
     duration: 10,
   });
 
-  console.log(userInput)
-
   function handleChange(inputIdentifier, newValue) {
-    
-    setUserInput(prevUserInput => {
+    setUserInput((prevUserInput) => {
       return {
         ...prevUserInput,
-        [inputIdentifier]: parseFloat(newValue)
-      }
-    })
-  } 
+        [inputIdentifier]: +newValue,
+      };
+    });
+  }
 
   return (
     <>
       <Header />
       <main>
         <UserInput userInput={userInput} handleChange={handleChange} />
-        <Result data={userInput} />
+        <Result userInput={userInput} />
       </main>
     </>
   );

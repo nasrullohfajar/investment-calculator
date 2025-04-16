@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-const UserInput = ({ data, onChange }) => {
+const UserInput = ({ userInput, handleChange }) => {
   return (
     <section id="user-input">
       <div className="input-group">
@@ -9,9 +9,9 @@ const UserInput = ({ data, onChange }) => {
           <input
             type="number"
             id="initial-invesment"
-            name="initialInvestment"
-            value={data.initialInvestment}
-            onChange={onChange}
+            value={userInput.initialInvestment}
+            onChange={(event) => handleChange('initialInvestment', event.target.value)}
+            required
           />
         </div>
         <div>
@@ -19,9 +19,8 @@ const UserInput = ({ data, onChange }) => {
           <input
             type="number"
             id="annual-invesment"
-            name="annualInvestment"
-            value={data.annualInvestment}
-            onChange={onChange}
+            value={userInput.annualInvestment}
+            onChange={(event) => handleChange('annualInvestment', event.target.value)}
             required
           />
         </div>
@@ -32,9 +31,8 @@ const UserInput = ({ data, onChange }) => {
           <input
             type="number"
             id="expected-return"
-            name="expectedReturn"
-            value={data.expectedReturn}
-            onChange={onChange}
+            value={userInput.expectedReturn}
+            onChange={(event) => handleChange('expectedReturn', event.target.value)}
             required
           />
         </div>
@@ -43,9 +41,8 @@ const UserInput = ({ data, onChange }) => {
           <input
             type="number"
             id="duration"
-            name="duration"
-            value={data.duration}
-            onChange={onChange}
+            value={userInput.duration}
+            onChange={(event) => handleChange('duration', event.target.value)}
             required
           />
         </div>

@@ -5,24 +5,24 @@ import Result from "./components/Result";
 import { useState } from "react";
 
 function App() {
-  const [data, setData] = useState({
-    initialInvestment: 0,
-    annualInvestment: 0,
-    expectedReturn: 0,
-    duration: 1,
+  const [userInput, setUserInput] = useState({
+    initialInvestment: 10000,
+    annualInvestment: 1200,
+    expectedReturn: 6,
+    duration: 10,
   });
 
   function handleChange(e) {
     const value = parseFloat(e.target.value);
-    setData({ ...data, [e.target.name]: value });
+    setUserInput({ ...userInput, [e.target.name]: value });
   } 
 
   return (
     <>
       <Header />
       <main>
-        <UserInput data={data} onChange={handleChange} />
-        <Result data={data} />
+        <UserInput data={userInput} onChange={handleChange} />
+        <Result data={userInput} />
       </main>
     </>
   );

@@ -2,7 +2,7 @@ import { useState } from "react";
 
 const UserInput = ({ data, onChange }) => {
   return (
-    <div id="user-input">
+    <section id="user-input">
       <div className="input-group">
         <div>
           <label htmlFor="initial-invesment">Initial Invesment</label>
@@ -22,6 +22,7 @@ const UserInput = ({ data, onChange }) => {
             name="annualInvestment"
             value={data.annualInvestment}
             onChange={onChange}
+            required
           />
         </div>
       </div>
@@ -34,6 +35,7 @@ const UserInput = ({ data, onChange }) => {
             name="expectedReturn"
             value={data.expectedReturn}
             onChange={onChange}
+            required
           />
         </div>
         <div>
@@ -44,10 +46,11 @@ const UserInput = ({ data, onChange }) => {
             name="duration"
             value={data.duration}
             onChange={onChange}
+            required
           />
         </div>
       </div>
-    </div>
+    </section>
   );
 };
 

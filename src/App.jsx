@@ -13,8 +13,9 @@ function App() {
   });
 
   function handleChange(e) {
-    setData({ ...data, [e.target.name]: e.target.value });
-  }
+    const value = parseFloat(e.target.value);
+    setData({ ...data, [e.target.name]: value });
+  } 
 
   return (
     <>

@@ -1,4 +1,4 @@
-import { calculateInvestmentResults } from "../util/investment";
+import { calculateInvestmentResults, formatter } from "../util/investment";
 
 const Result = ({ data }) => {
   const results = calculateInvestmentResults({
@@ -7,6 +7,8 @@ const Result = ({ data }) => {
     expectedReturn: data.expectedReturn,
     duration: data.duration,
   });
+
+  let totalInterest = 0;
 
   return (
     <table id="result">
@@ -21,13 +23,19 @@ const Result = ({ data }) => {
       </thead>
       <tbody>
         {results.map((result) => {
+          totalInterest = totalInterest + result.interest;
+          let investedCapital = 
+            data.initialInvestment + (result.year * data.annualInvestment)
+          ;
+          let invesmentValue = totalInterest + investedCapital
+
           return (
             <tr key={result.year}>
               <td>{result.year}</td>
-              <td>$16,800</td>
-              <td>$900</td>
-              <td>$900</td>
-              <td>$15,900</td>
+              <td>{formatter.format(invesmentValue)}</td>
+              <td>{formatter.format(result.interest)}</td>
+              <td>{formatter.format(totalInterest)}</td>
+              <td>{formatter.format(investedCapital)}</td>
             </tr>
           );
         })}

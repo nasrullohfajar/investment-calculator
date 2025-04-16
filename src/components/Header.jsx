@@ -1,9 +1,11 @@
+import logo from '../assets/investment-calculator-logo.png'
+
 const Header = () => {
   return (
-    <div id="header">
-      <img src={'public/investment-calculator-logo.png'} alt="" />
+    <header id="header">
+      <img src={logo} alt="Logo showing a money bag" />
       <h1>Invesment Calculator</h1>
-    </div>
+    </header>
   );
 };
 
